@@ -3,7 +3,7 @@
 The goal of our 'Track It!' software, here at ByteLyfe, is to allow users to track their necessary calories consumed on a daily basis based on measurements of key user parameters. Many people, unfortunately, do not take in the necessary nutrients on a daily basis to sustain their active lifestyles in a healthy way. Using our daily suggested calories goals user's will be able to resolve this problem provided they follow our calculated values.
 
 ## Wireframe
-![WF](https://github.com/knjeru/U1_caloriecounter_proj/blob/master/WF/Screen%20Shot%202016-01-29%20at%202.11.50%20PM.png)
+![WF](https://github.com/knjeru/U1_caloriecounter_proj/blob/master/WF/Screen%20Shot%202016-01-29%20at%202.23.45%20PM.png)
 
 ## Technologies Used
 
