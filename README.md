@@ -1,9 +1,9 @@
 ## Project Overview
 
-The goal of ByteLyfe's Calorie Counter is to allow users to track their necessary calories consumed on a daily basis based on measurements of key user parameters, and to have users intake calories daily based on the recommended amount calculated.
+The goal of our 'Track It!' software, here at ByteLyfe, is to allow users to track their necessary calories consumed on a daily basis based on measurements of key user parameters. Many people do not take in the necessary nturients on a daily basis to sustain their active lifestyles in a healthy way. Using our daily suggested calories goals user's will 
 
 ## Wireframe
-![wireframe](http://postimg.org/image/rwv6a147n/)
+
 
 ## Technologies Used
 
@@ -11,6 +11,7 @@ The goal of ByteLyfe's Calorie Counter is to allow users to track their necessar
 * JS/JSON: Adjust user calories based on parameters passed by user inputs
 * jQuery/DOM: On button click append updates to the total calories consumed/cals remaining/water consumed.
 * AJAX: Pull calorie information from nutritional database API
+* local storage: to retain information towards the total calories consumed/remaining.
 
 ## Current Features
 
@@ -25,3 +26,5 @@ The goal of ByteLyfe's Calorie Counter is to allow users to track their necessar
 ## Future Feature Additions
 
 * Users can input information from exercises performed
+* recommend new foods/recipes based on previous foods consumed
+* recommend new workouts based on previous inputted workouts
