@@ -1,0 +1,45 @@
+#navigation,.navbar .navbar-default{
+  background-image: url(https://novembrepleut.files.wordpress.com/2011/12/running-man.jpg);
+  background-position: 80% 70%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 0;
+  border: none;
+}
+
+.navbar-brand {
+  
+  font-weight: bolder;
+  font-style: italic;
+}
+
+header {
+  position: relative;
+  top: 50px;
+}
+
+.enter {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
+  width: 75%;
+  height: 75%;
+  z-index: 2;
+  visibility: hidden;
+}
+
+a.enter:hover {
+  visibility: visible;
+  z-index: 2;
+}
+
+#BGenter {
+  position: absolute;
+  top: 175px;
+  left: 0%;
+  margin: 0 auto;
+  width: 500px;
+  height: 300px;
+  background-image: ;
+}
