@@ -1,1 +1,6 @@
 /* add custom styles */
+
+body {
+  background-color: #21c8de;
+  padding-top: 70px;
+}
