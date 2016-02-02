@@ -56,3 +56,19 @@ a {
 input {
   margin-right: 5px;
 }
+
+#original {
+/*   margin: 0 auto; */
+  height: auto;
+  width: 100px;
+  overflow: hidden;
+  /*   border: 1px black solid; */
+}
+
+.mWater {
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px black solid;
+  background: blue;
+  margin: 0 auto;
+}

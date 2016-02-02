@@ -36,15 +36,17 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-xs-9 col-xs-offset-1 fitform text-center">
+      <div class="col-xs-9 col-xs-offset-1 form text-center">
         <form class="form-horizontal" action="index.html" method="post">
           <div class="form-group">
             <div class="row">
-              <label class="control-label col-xs-3" for="bfood">Breakfast Food:</label>
-              <input class="col-xs-4" type="text" name="name" placeholder="Enter Breakfast Food" id="bfood">
-              <button type="button" name="button">Add Food</button>
+              <label class="control-label col-xs-3" for="bfood">What have you eaten today?</label>
+              <input class="col-xs-4" type="text" name="name" placeholder="Enter a food item" id="anyfood">
+              <button type="button" name="button" id="addFood">Add Food</button>
             </div>
 
+            <!-- Later Revisions can utilize these extra inputs for lunch,dinner, etc-->
+<!--
             <div class="row">
               <label class="control-label col-xs-3" for="lfood">Lunch Food:</label>
               <input class="col-xs-4" type="text" name="name" placeholder="Enter Lunch Food" id="lfood">
@@ -62,7 +64,7 @@
               <input class="col-xs-4" type="text" name="name" placeholder="Enter Snack Food" id="sfood">
               <button type="button" name="button">Add Food</button>
             </div>
-
+             -->
             <div class="row">
               <label class="control-label col-xs-3" for="calsconsumed">Calories Consumed:</label>
               <div class="col-xs-2 form-control-static" id="calsconsumed">
@@ -75,11 +77,14 @@
             </div>
             <div class="row">
               <label class="control-label col-xs-3" for="water">Water Consumed:</label>
-              <div class="col-xs-3 col-xs-offset-0" id="water"></div>
+              <div class="col-xs-3 col-xs-offset-0" id="water">
+                <section id='original'>
+                </section>
+              </div>
             </div>
             <div class="row">
               <div class="row">
-                <button class="col-xs-3 col-xs-offset-5" type="button" name="button">Add Cup (8oz)</button>
+                <button class="col-xs-3 col-xs-offset-5" type="button" name="button" id="add">Add Cup (8oz)</button>
               </div>
               <div class="row">
                 <button class="col-xs-3 col-xs-offset-5" type="button" name="button">Reset</button>
@@ -100,6 +105,7 @@
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/trackProf.js"></script>
 </body>
 
 </html>
