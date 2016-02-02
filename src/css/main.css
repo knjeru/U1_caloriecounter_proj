@@ -2,5 +2,57 @@
 
 body {
   background-color: #21c8de;
-  padding-top: 70px;
+  background-image: url(/IMG/bgimg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+a {
+  text-decoration: none;
+}
+
+#navigation,.navbar .navbar-default{
+  /*background-image: url(https://novembrepleut.files.wordpress.com/2011/12/running-man.jpg);
+  background-position: 80% 70%;
+  background-size: cover;
+  background-repeat: no-repeat;*/
+  border-radius: 0;
+  border: none;
+  box-shadow: 5px 5px 5px rgba(28, 28, 28, 0.5);
+}
+
+.form {
+  padding-top: 20px;
+  padding-bottom: 5px;
+  top: 100px;
+  width: 60%;
+  height: 100%;
+  /*background-color: rgba(65, 159, 205, 0.86);*/
+  background-color: rgba(64, 140, 60, 0.86);
+  border-radius: 2%;
+  box-shadow: 1px 4px 10px 2px rgba(28, 28, 28, 0.5);
+}
+
+
+#water {
+  height: 50px;
+  width: 50%;
+  max-width: 100%;
+  background-color: rgba(219, 219, 219, 0.87);
+}
+
+.fitform {
+  padding-top: 20px;
+  padding-bottom: 5px;
+  color: rgb(233, 233, 233);
+  top: 100px;
+  /*width: 100%;*/
+  height: 100%;
+  background-color: #5789a8;
+  border-radius: 2%;
+  box-shadow: 1px 4px 10px 2px rgba(28, 28, 28, 0.5);
+}
+
+input {
+  margin-right: 5px;
 }

@@ -1,16 +1,5 @@
-#navigation,.navbar .navbar-default{
-  background-image: url(https://novembrepleut.files.wordpress.com/2011/12/running-man.jpg);
-  background-position: 80% 70%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 0;
-  border: none;
-}
-
 .navbar-brand {
-  
   font-weight: bolder;
-  font-style: italic;
 }
 
 header {
@@ -18,15 +7,24 @@ header {
   top: 50px;
 }
 
+
+/*Plan to eliminate the button. And more towards a diferent enter style button*/
 .enter {
-  position: fixed;
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  height: 100px;
+  width: 200px;
+  border-radius: 2%;
+  text-align: center;
+  color: #5789a8;
+  /*position: fixed;
   top: 50%;
   left: 50%;
   margin: 0 auto;
   width: 75%;
   height: 75%;
-  z-index: 2;
-  visibility: hidden;
+  z-index: 2;*/
 }
 
 a.enter:hover {

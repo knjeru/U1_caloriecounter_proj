@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>ByteLyfe</title>
+
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="/css/landing.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-default" id="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Welcome to Track It!</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class=""><a href="index.html">Home</a></li>
+          <li class=""><a href="basicprofile.html">User Profile</a></li>
+          <li class="active"><a href="trackingprofile.html">Calorie Tracker</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-9 col-xs-offset-1 fitform text-center">
+        <form class="form-horizontal" action="index.html" method="post">
+          <div class="form-group">
+            <div class="row">
+              <label class="control-label col-xs-3" for="bfood">Breakfast Food:</label>
+              <input class="col-xs-4" type="text" name="name" placeholder="Enter Breakfast Food" id="bfood">
+              <button type="button" name="button">Add Food</button>
+            </div>
+
+            <div class="row">
+              <label class="control-label col-xs-3" for="lfood">Lunch Food:</label>
+              <input class="col-xs-4" type="text" name="name" placeholder="Enter Lunch Food" id="lfood">
+              <button type="button" name="button">Add Food</button>
+            </div>
+
+            <div class="row">
+              <label class="control-label col-xs-3" for="dfood">Dinner Food:</label>
+              <input class="col-xs-4" type="text" name="name" placeholder="Enter Dinner Foods" id="dfood">
+              <button type="button" name="button">Add Food</button>
+            </div>
+
+            <div class="row">
+              <label class="control-label col-xs-3" for="sfood">Snack Foods:</label>
+              <input class="col-xs-4" type="text" name="name" placeholder="Enter Snack Food" id="sfood">
+              <button type="button" name="button">Add Food</button>
+            </div>
+
+            <div class="row">
+              <label class="control-label col-xs-3" for="calsconsumed">Calories Consumed:</label>
+              <div class="col-xs-2 form-control-static" id="calsconsumed">
+              </div>
+            </div>
+            <div class="row">
+              <label class="control-label col-xs-3" for="calsremain">Calories Remaining:</label>
+              <div class="col-xs-2 form-control-static" id="calsremain">
+              </div>
+            </div>
+            <div class="row">
+              <label class="control-label col-xs-3" for="water">Water Consumed:</label>
+              <div class="col-xs-3 col-xs-offset-0" id="water"></div>
+            </div>
+            <div class="row">
+              <div class="row">
+                <button class="col-xs-3 col-xs-offset-5" type="button" name="button">Add Cup (8oz)</button>
+              </div>
+              <div class="row">
+                <button class="col-xs-3 col-xs-offset-5" type="button" name="button">Reset</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-4">
+              <a href="trackingprofile.html" class="btn btn-primary btn-lg active" role="button">Submit</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
