@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>ByteLyfe</title>
+
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="/css/landing.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-default" id="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Welcome to Track It!</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class=""><a href="index.html">Home</a></li>
+          <li class="active"><a href="basicprofile.html">User Profile</a></li>
+          <li><a href="trackingprofile.html">Calorie Tracker</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3 form">
+        <form class="form-horizontal" action="index.html" method="post">
+          <div class="form-group">
+            <label class="control-label col-xs-2" for="name">First Name:</label>
+            <input class="col-xs-8" type="text" name="name" placeholder="First Name" id="firstName">
+            <br>
+            <br>
+            <label class="control-label col-xs-2" for="name">Last Name:</label>
+            <input class="col-xs-8" type="text" name="name" placeholder="Last Name" id="lastName">
+            <br>
+            <br>
+            <label class="control-label col-xs-2" for="age">Age:</label>
+            <input class="col-xs-8" type="text" name="name" placeholder="Current Age" id="age">
+            <br>
+            <br>
+            <label class="control-label col-xs-2" for="weight">Weight:</label>
+            <input class="col-xs-8" type="text" name="name" placeholder="Current Weight" id="weight">
+            <br>
+            <br>
+            <label class="control-label col-xs-2" for="height">Height:</label>
+            <input class="col-xs-8" type="text" name="name" placeholder="Feet" id="feet">
+            <input class="col-xs-8" type="text" name="name" placeholder="Inches" id="inches">
+            <br>
+            <br>
+            <div class="row calcform">
+              <label class="control-label col-xs-2" for="bmr"></label>
+              <div class="col-xs-2" id="bmr">
+                <span class="bmr"></span>
+              </div>
+              <label class="control-label col-xs-2" for="bmi"></label>
+              <div class="col-xs-2" id="bmi">
+                <span class="bmi"></span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-offset-5 col-xs-2">
+              <!-- <a href="trackingprofile.html" class="btn btn-primary btn-md active" role="button">Submit</a> -->
+              <button class="btn btn-default btn-primary btn-md active" type="submit" name="button">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/basicprof.js"></script>
+</body>
+
+</html>
