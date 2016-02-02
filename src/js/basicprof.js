@@ -53,28 +53,28 @@ $(document).ready(function() {
 
     //***   helper functions   ***//
 
-    // calculate userHeight
-    function convertHeight() {
-      return Math.floor((createUser.feet * 12) + createUser.inches);
-    }
-    var userHeight2 = convertHeight();
-
-    // calculate BMR
-    function calcBMR() {
-      return Math.floor(66 + (6.23 * createUser.weight) + (12.7 * userHeight2) - (6.8 * createUser.age));
-    }
-    var bmrC = calcBMR();
-
-    // calculate BMI
-    function calcBMI() {
-      return Math.floor(703 * (createUser.weight/(userHeight2 * userHeight2)));
-    }
-    var bmiC = calcBMI();
-
-    // show me if it worked!!!
-
-    // console.log(bmrC);
-    // console.log(bmiC);
+    // // calculate userHeight
+    // function convertHeight() {
+    //   return Math.floor((createUser.feet * 12) + createUser.inches);
+    // }
+    // var userHeight2 = convertHeight();
+    //
+    // // calculate BMR
+    // function calcBMR() {
+    //   return Math.floor(66 + (6.23 * createUser.weight) + (12.7 * userHeight2) - (6.8 * createUser.age));
+    // }
+    // var bmrC = calcBMR();
+    //
+    // // calculate BMI
+    // function calcBMI() {
+    //   return Math.floor(703 * (createUser.weight/(userHeight2 * userHeight2)));
+    // }
+    // var bmiC = calcBMI();
+    //
+    // // show me if it worked!!!
+    //
+    // // console.log(bmrC);
+    // // console.log(bmiC);
     console.log(newUser2);
 
 
