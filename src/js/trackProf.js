@@ -2,7 +2,18 @@ $(document).ready(function() {
   console.log('just carrying over some goodies from the other page');
 
   //get the items from local storage for use on this page
-  localStorage.getItem("user");
+  var currUser = JSON.parse(localStorage.getItem("user"));
+  var recCals = currUser.recCalories;
+
+  // this will be equal to the total amount of calories consumed so far today
+  // var calsCON;
+
+  // var calsREM = Math.floor(recCals - calsCON);
+
+  // append the reccommended amount of calories to the document
+  // $("#calsConsumed").append('<p class="gUP">('+calsCON+')</p>');
+  
+  $("#calsRemain").append('<p class="gUP">('+recCals+')</p>');
 
   //pull API info for different foods
 

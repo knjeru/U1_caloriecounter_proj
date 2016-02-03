@@ -72,3 +72,8 @@ input {
   background: blue;
   margin: 0 auto;
 }
+
+.gUP {
+  font-weight: bold;
+  font-size: 2.5em;
+}

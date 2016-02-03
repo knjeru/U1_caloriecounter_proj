@@ -1,5 +1,3 @@
-//** Functions to build a new user profile **//
-
 //** Constructor **//
 var UserProf = function(info) {
   this.firstName = info.firstName;
@@ -14,8 +12,14 @@ var UserProf = function(info) {
   // calculate userHeight
   this.heightToinches = Math.floor((this.feet * 12) + this.inches);
 
-  // calculate BMR
-  this.bmr = Math.floor(66 + (6.23 * this.weight) + (12.7 * this.heightToinches) - (6.8 * this.age));
+  // calculate BMR based on gender
+  if(this.gender === "male") {
+    // male BMR calc
+    this.bmr = Math.floor(66 + (6.23 * this.weight) + (12.7 * this.heightToinches) - (6.8 * this.age));
+  } else {
+    // female BMR calc
+    this.bmr = Math.floor(655 + (4.35 * this.weight) + (4.7 * this.heightToinches) - (4.7 * this.age));
+  }
 
   // calculate BMI
   this.bmi = Math.floor(703 * (this.weight / (this.heightToinches * this.heightToinches)));
@@ -23,6 +27,8 @@ var UserProf = function(info) {
   // calculate cals safe for consumption based on activity level
   this.recCalories = Math.floor(this.bmr * this.activeLevel);
 };
+
+var storeData = [];
 
 $(document).ready(function() {
   if (typeof(Storage) !== "undefined") {
@@ -36,15 +42,16 @@ $(document).ready(function() {
 
   $('form').on('submit', function(e) {
     e.preventDefault();
+
     var createUser = {};
     createUser.firstName = $("#firstName").val();
     createUser.lastName = $("#lastName").val();
-    createUser.gender = $("#gender").val();
+    createUser.gender = $('input[name="gender"]:checked').val();
     createUser.age = parseInt($("#age").val());
     createUser.weight = parseInt($("#weight").val());
     createUser.feet = parseInt($("#feet").val());
     createUser.inches = parseInt($("#inches").val());
-    createUser.activeLevel = $("#activeness").val();
+    createUser.activeLevel = $('input[name="activity"]:checked').val();
 
     var newUser = new UserProf(createUser);
 
