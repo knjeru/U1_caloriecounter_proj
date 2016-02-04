@@ -1,27 +1,40 @@
 //Global Variables
 
 var calsFromFood = [];
-var calsCON = [];
+var calsCON;
+var currWater = 0;
+
+// helper function for text capitalization
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 $(document).ready(function() {
   console.log('just carrying over some goodies from the other page');
 
-  //get the items from local storage for use on this page
-  var currUser = JSON.parse(localStorage.getItem("user"));
-  var recCals = currUser.recCalories;
-  var calsREM = recCals;
+  $('#trackUserProf').show('slow', 'swing');
 
-  // this will be equal to the total amount of calories consumed so far today
-  // var calsCON;
+  if (JSON.parse(localStorage.getItem("user")) === null) {
+    $('#trackUserProf').empty();
+    $("#trackUserProf").append('<p class="gUP warning">Please fill out your profile to use our amazing calorie counter!</p>');
+  } else {
 
-  // var calsREM = Math.floor(recCals - calsCON);
+    //get the items from local storage for use on this page
+    var currUser = JSON.parse(localStorage.getItem("user"));
+    var recCals = currUser.recCalories;
+    var calsREM = recCals;
 
-  // append the reccommended amount of calories to the document
-  if (calsCON.length === 0) {
-    $('#calsConsumed').append('<p class="gUP">Start Tracking Cals</p>');
+    // append the reccommended amount of calories to the document
+    if (calsCON === undefined) {
+      $('#foodItem').append('<p class="appendedText">What have you eaten today?</p>');
+      $('#calsConsumed').append('<p class="gUP">Enter a food item to start tracking calories!</p>');
+    }
+
+    $("#calsRemain").append('<p class="gUP">' + recCals + '</p>');
+
   }
 
-  $("#calsRemain").append('<p class="gUP">(' + recCals + ')</p>');
+
 
   //pull API info for different foods
 
@@ -48,49 +61,60 @@ $(document).ready(function() {
             // return calories from local storage
             calsFromFood.push(parseInt((JSON.parse(localStorage.getItem("foodCON")))));
 
-            calsCON.push(calsFromFood.reduce(function(previousVal, currentVal) {
+            calsCON = calsFromFood.reduce(function(previousVal, currentVal) {
               return previousVal + currentVal;
-            }));
-            console.log(calsCON);
+            });
+            updateCalInfo();
 
+            // show user the food item they just added
+            $('#foodItem').append('<p class="appendedText">I hope that the ' + capitalizeFirstLetter(baseFood) + ' you had tasted good going down because it added ' + calories + ' calories to your body!</p>');
           }
         });
+      },
+      
+      error: function(err) {
+        console.log(err);
+        $('#foodItem').append('<p class="gUP">Sorry it appears as if our kitchen does not stock ' + capitalizeFirstLetter(baseFood) + '. Maybe you should try selecting a real food next time?</p>');
+
       }
     });
-    updateCalInfo();
-  });
 
-  $("#reset").on('click', function() {
-    for (var i = calsCON.length; i >= calsCON.length - 1; i--) {
-      console.log(calsCON[i]);
-    }
-    // console.log(calsCON[]);
+    // clear input value
+    $('input').val('');
+    $('#foodItem').empty();
+
   });
 
   function updateCalInfo() {
 
-    var test = null;
-    for (var i = calsCON.length; i >= calsCON.length - 1; i--) {
-      test = calsCON[i];
-      calsREM = Math.floor(recCals - test);
-      console.log(calsCON[i]);
-    }
-
-    if (calsCON.length > 0) {
-      $('#calsConsumed').empty();
-      $('#calsConsumed').append('<p class="gUP">' + test + '</p>');
-      $("#calsRemain").empty();
-      $("#calsRemain").append('<p class="gUP">('+calsREM+')</p>');
-    }
+    calsREM = Math.floor(recCals - calsCON);
+    $('#calsConsumed').empty();
+    $('#calsConsumed').append('<p class="gUP">' + calsCON + '</p>');
+    $("#calsRemain").empty();
+    $("#calsRemain").append('<p class="gUP">(' + calsREM + ')</p>');
   }
 
 
   // append some goodies for water
 
+  $('#water').append('<p class="gUP">' + currWater + '</p>');
+  var remWater = 0;
+
   $('#add').on('click', function() {
-    var allDivsB = $('<p class="mWater"></p>');
-    console.log(allDivsB);
-    $('section').append(allDivsB);
+    $('html, body').animate({
+      scrollTop: $("#water").offset().top
+    }, 1000);
+    currWater = Math.floor(currWater + 8);
+    remWater = Math.floor(64 - currWater);
+    $('#water').empty();
+    if (currWater < 64) {
+      $('#water').append("<p class='gUP'>You're up to " + currWater + " ounces of water!</p>");
+      $('#water').append("<p class='gUP'>Only " + remWater + " ounces to go!</p>");
+    } else {
+      $('#water').append("<p class='gUP'>You're up to " + currWater + " ounces of water!</p>");
+      $('#water').append("<p class='appendedText'>You've reached your goal, but keeping going!</p>");
+    }
+
   });
 
 

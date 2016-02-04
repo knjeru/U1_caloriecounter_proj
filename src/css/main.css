@@ -2,20 +2,16 @@
 
 body {
   background-color: #21c8de;
-  background-image: url(/IMG/bgimg.jpg);
+  background-image: url(../IMG/bgimg3.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-a {
-  text-decoration: none;
+#introEnter a {
+  color: black;
 }
 
-#navigation,.navbar .navbar-default{
-  /*background-image: url(https://novembrepleut.files.wordpress.com/2011/12/running-man.jpg);
-  background-position: 80% 70%;
-  background-size: cover;
-  background-repeat: no-repeat;*/
+#navigation, .navbar .navbar-default {
   border-radius: 0;
   border: none;
   box-shadow: 5px 5px 5px rgba(28, 28, 28, 0.5);
@@ -24,56 +20,74 @@ a {
 .form {
   padding-top: 20px;
   padding-bottom: 5px;
-  top: 100px;
+  top: 50px;
   width: 60%;
   height: 100%;
-  /*background-color: rgba(65, 159, 205, 0.86);*/
-  background-color: rgba(64, 140, 60, 0.86);
+  background-color: rgba(64, 140, 60, 0.93);
   border-radius: 2%;
   box-shadow: 1px 4px 10px 2px rgba(28, 28, 28, 0.5);
+  margin-bottom: 50px;
 }
 
-
-#water {
-  height: 50px;
-  width: 50%;
-  max-width: 100%;
-  background-color: rgba(219, 219, 219, 0.87);
-}
-
-.fitform {
-  padding-top: 20px;
-  padding-bottom: 5px;
-  color: rgb(233, 233, 233);
-  top: 100px;
-  /*width: 100%;*/
-  height: 100%;
-  background-color: #5789a8;
-  border-radius: 2%;
-  box-shadow: 1px 4px 10px 2px rgba(28, 28, 28, 0.5);
+#introEnter {
+  height: auto;
+  width: auto;
+  background-color: rgba(64, 140, 60, 0.93);
+  position: absolute;
+  top: 225px;
+  left: 18%;
+  padding-top: 0px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
 }
 
 input {
   margin-right: 5px;
 }
-
 #original {
-/*   margin: 0 auto; */
   height: auto;
   width: 100px;
   overflow: hidden;
-  /*   border: 1px black solid; */
-}
-
-.mWater {
-  height: 50px;
-  width: 100%;
-  border-bottom: 1px black solid;
-  background: blue;
-  margin: 0 auto;
 }
 
 .gUP {
-  font-weight: bold;
   font-size: 2.5em;
+}
+
+#introEnter, #baseUserProf, #trackUserProf {
+  display: none;
+}
+
+.appendedText {
+  font-style: italic;
+  font-weight: bolder;
+}
+
+.warning {
+  height: 100px;
+  width: auto;
+  font-weight: bold;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 1px 4px 10px 2px rgba(28, 28, 28, 0.5);
+  background-color: rgba(64, 140, 60, 0.96);
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  padding: 5px;
+  padding-top: 20px;
+}
+
+.modalLife {
+  position: fixed;
+  top: 300px;
+  left: 50px;
+  font-weight: bold;
+  color: black;
+  background-color: rgba(237, 168, 50, 0.96);
+  text-align: center;
 }

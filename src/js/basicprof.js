@@ -1,3 +1,4 @@
+
 //** Constructor **//
 var UserProf = function(info) {
   this.firstName = info.firstName;
@@ -28,48 +29,67 @@ var UserProf = function(info) {
   this.recCalories = Math.floor(this.bmr * this.activeLevel);
 };
 
-var storeData = [];
 
 $(document).ready(function() {
-  if (typeof(Storage) !== "undefined") {
-    // Code for localStorage/sessionStorage.
-    console.log('Pay no attention to me tucking things away');
+  $('#baseUserProf').show('slow', 'swing');
+  if (JSON.parse(localStorage.getItem("user")) == null) {
+
+      if (typeof(Storage) !== "undefined") {
+        // Code for localStorage/sessionStorage.
+        console.log('Pay no attention to me tucking things away');
+      } else {
+        // Sorry! No Web Storage support..
+        console.log('I cannot store for you');
+      }
+
+
+      $('form').on('submit', function(e) {
+        e.preventDefault();
+
+        var createUser = {};
+        createUser.firstName = $("#firstName").val();
+        createUser.lastName = $("#lastName").val();
+        createUser.gender = $('input[name="gender"]:checked').val();
+        createUser.age = parseInt($("#age").val());
+        createUser.weight = parseInt($("#weight").val());
+        createUser.feet = parseInt($("#feet").val());
+        createUser.inches = parseInt($("#inches").val());
+        createUser.activeLevel = $('input[name="activity"]:checked').val();
+
+        var newUser = new UserProf(createUser);
+
+        console.log(newUser);
+
+        //store user in localStorage
+        localStorage.setItem("user", JSON.stringify(newUser));
+
+        //fetch object
+        console.log(localStorage.getItem("user"));
+
+        // clear inputs
+        $('input').val('');
+        $('input[name="gender"]').prop('checked', false);
+        $('input[name="activity"]').prop('checked', false);
+
+        // append link to DOM
+        $('#toHere').empty();
+        $('#toHere').append('<a href="trackingprofile.html" class="btn btn-primary btn-md active" role="button">Lets Track Your Calories for the day!</a>');
+
+        // hide form on successful completion and show current BMI and BMR
+        $('#bUserForm').empty();
+        $('#bUserForm').append('<p class="col-md-6 col-md-offset-3 appendedText">Here is your current BMI! '+newUser.bmi+'</p>');
+      });
   } else {
-    // Sorry! No Web Storage support..
-    console.log('I cannot store for you');
-  }
 
+    var currUser = JSON.parse(localStorage.getItem("user"));
+    var currBMI = currUser.bmi;
 
-  $('form').on('submit', function(e) {
-    e.preventDefault();
+    // append link to DOM
+    $('#toHere').empty();
+    $('#toHere').append('<a href="trackingprofile.html" class="btn btn-primary btn-md active" role="button">Lets Track Your Calories for the day!</a>');
+    // keep form on hidden if already completed and show current BMI and BMR
+    $('#bUserForm').empty();
+    $('#bUserForm').append('<p class="col-md-9 col-md-offset-2 gUP">Here is your current BMI! '+currUser.bmi+'</p>');
 
-    var createUser = {};
-    createUser.firstName = $("#firstName").val();
-    createUser.lastName = $("#lastName").val();
-    createUser.gender = $('input[name="gender"]:checked').val();
-    createUser.age = parseInt($("#age").val());
-    createUser.weight = parseInt($("#weight").val());
-    createUser.feet = parseInt($("#feet").val());
-    createUser.inches = parseInt($("#inches").val());
-    createUser.activeLevel = $('input[name="activity"]:checked').val();
-
-    var newUser = new UserProf(createUser);
-
-    console.log(newUser);
-
-    //store user in localStorage
-    localStorage.setItem("user", JSON.stringify(newUser));
-
-    //fetch object
-    console.log(localStorage.getItem("user"));
-
-    // clear inputs
-    $('input').val('');
-    $('input[name="gender"]').prop('checked', false);
-    $('input[name="activity"]').prop('checked', false);
-
-  });
-
-
-
+}
 });
