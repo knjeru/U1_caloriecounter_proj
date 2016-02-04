@@ -12,6 +12,13 @@ function capitalizeFirstLetter(string) {
 $(document).ready(function() {
   console.log('just carrying over some goodies from the other page');
 
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+
   $('#trackUserProf').show('slow', 'swing');
 
   if (JSON.parse(localStorage.getItem("user")) === null) {
@@ -26,15 +33,17 @@ $(document).ready(function() {
 
     // append the reccommended amount of calories to the document
     if (calsCON === undefined) {
-      $('#foodItem').append('<p class="appendedText">What have you eaten today?</p>');
-      $('#calsConsumed').append('<p class="gUP">Enter a food item to start tracking calories!</p>');
+      $('#foodItem').append('<p class="gUP">Good Day, <strong>'+currUser.firstName+'</strong>!<br> What have you eaten today?</p>');
+      $('#calsConsumed').append('<p class="gUP">Enter a food item to start tracking calories</p>');
     }
 
-    $("#calsRemain").append('<p class="gUP">' + recCals + '</p>');
+    $("#calsRemain").append('<p class="gUP"><strong>' + recCals + '</strong></p>');
 
   }
 
-
+  $('html, body').animate({
+    scrollTop: $("#water").offset().top
+  }, 1000);
 
   //pull API info for different foods
 
@@ -67,14 +76,14 @@ $(document).ready(function() {
             updateCalInfo();
 
             // show user the food item they just added
-            $('#foodItem').append('<p class="appendedText">I hope that the ' + capitalizeFirstLetter(baseFood) + ' you had tasted good going down because it added ' + calories + ' calories to your body!</p>');
+            $('#foodItem').append('<p class="gUP">I hope that the <strong>' + capitalizeFirstLetter(baseFood) + '</strong> you had tasted good going down because it added <strong>' + calories + '</strong> calories to your body!</p>');
           }
         });
       },
-      
+
       error: function(err) {
         console.log(err);
-        $('#foodItem').append('<p class="gUP">Sorry it appears as if our kitchen does not stock ' + capitalizeFirstLetter(baseFood) + '. Maybe you should try selecting a real food next time?</p>');
+        $('#foodItem').append('<p class="gUP">Sorry it appears as if our kitchen does not stock <strong>' + capitalizeFirstLetter(baseFood) + '</strong>. Maybe you should try selecting a real food next time?</p>');
 
       }
     });
@@ -83,21 +92,27 @@ $(document).ready(function() {
     $('input').val('');
     $('#foodItem').empty();
 
+    $('html, body').animate({
+      scrollTop: $("#water").offset().top
+    }, 1000);
   });
 
   function updateCalInfo() {
 
     calsREM = Math.floor(recCals - calsCON);
     $('#calsConsumed').empty();
-    $('#calsConsumed').append('<p class="gUP">' + calsCON + '</p>');
+    $('#calsConsumed').append('<p class="gUP"><strong>' + calsCON + '</strong></p>');
     $("#calsRemain").empty();
-    $("#calsRemain").append('<p class="gUP">(' + calsREM + ')</p>');
+    $("#calsRemain").append('<p class="gUP"><strong>' + calsREM + '</strong></p>');
   }
 
 
   // append some goodies for water
 
-  $('#water').append('<p class="gUP">' + currWater + '</p>');
+  if (currWater === 0) {
+      $('#water').append("<p class='gUP'>Oh no! It looks like you haven't hydrated yet today! Quick take a sip before you wither away!</p>");
+  }
+
   var remWater = 0;
 
   $('#add').on('click', function() {
@@ -107,7 +122,11 @@ $(document).ready(function() {
     currWater = Math.floor(currWater + 8);
     remWater = Math.floor(64 - currWater);
     $('#water').empty();
-    if (currWater < 64) {
+    if (currWater === 8) {
+      $('#water').append("<p class='gUP'>Phew! You're up to " + currWater + " ounces of water now, but keep chugging!</p>");
+      $('#water').append("<p class='gUP'>Only " + remWater + " ounces to go!</p>");
+    }
+    else if (currWater < 64) {
       $('#water').append("<p class='gUP'>You're up to " + currWater + " ounces of water!</p>");
       $('#water').append("<p class='gUP'>Only " + remWater + " ounces to go!</p>");
     } else {
