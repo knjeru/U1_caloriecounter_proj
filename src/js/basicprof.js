@@ -1,4 +1,4 @@
-//helper
+//helper function for text capitalization
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -20,7 +20,8 @@ var UserProf = function(info) {
   // calculate BMR based on gender
   if (this.gender === "male") {
     // male BMR calc
-    this.bmr = Math.floor(66 + (6.23 * this.weight) + (12.7 * this.heightToinches) - (6.8 * this.age));
+    this.bmr = Math.floor(66 + (6.23 * this.weight) +
+    (12.7 * this.heightToinches) - (6.8 * this.age));
   } else {
     // female BMR calc
     this.bmr = Math.floor(655 + (4.35 * this.weight) + (4.7 * this.heightToinches) - (4.7 * this.age));
@@ -35,7 +36,8 @@ var UserProf = function(info) {
 
 
 $(document).ready(function() {
-  $('#baseUserProf').show('slow', 'swing');
+  $('#baseUserProf').show();
+  $('.formfit').addClass('animated fadeIn');
   if (JSON.parse(localStorage.getItem("user")) === null) {
 
     if (typeof(Storage) !== "undefined") {
@@ -76,12 +78,17 @@ $(document).ready(function() {
       $('input[name="activity"]').prop('checked', false);
 
       // append link to DOM
-      $('#toHere').empty();
-      $('#toHere').append('<a href="trackingprofile.html" class="col-md-offset-3 btn btn-primary btn-md active" role="button">Lets start tracking your calories!</a>');
+      $('#userbmidiv').empty();
+      $('#userbmidiv').addClass('animated bounceIn').append('<a href="trackingprofile.html"'+
+        'class="col-md-offset-3 btn btn-primary btn-md active" role="button">'+
+        'Lets start tracking your calories!</a>'
+      );
 
       // hide form on successful completion and show current BMI and BMR
       $('#bUserForm').empty();
-      $('#bUserForm').append('<p class="col-md-11 col-md-offset-0 gUP text-center">Welcome <strong>' + capitalizeFirstLetter(newUser.firstName) + '</strong>! Here is your current BMI! <br><strong>' + newUser.bmi + '</strong></p>');
+      $('#bUserForm').addClass('animated fadeIn').append('<p class="col-md-10 col-md-offset-0 gUP text-center">Welcome <strong>' + capitalizeFirstLetter(newUser.firstName) +
+      '</strong>! <br>Here is your current BMI: <br><strong>[' + newUser.bmi +
+      ']</strong></p>');
     });
   } else {
 
@@ -89,11 +96,11 @@ $(document).ready(function() {
     var currBMI = currUser.bmi;
 
     // append link to DOM
-    $('#toHere').empty();
-    $('#toHere').append('<a href="trackingprofile.html" class="btn btn-primary btn-md active" role="button">Lets Track Your Calories for the day!</a>');
+    $('#userbmidiv').empty();
+    $('#userbmidiv').addClass('animated fadeIn').append('<a href="trackingprofile.html" class="btn btn-primary btn-md active" role="button">Lets Track Your Calories for the day!</a>');
     // keep form on hidden if already completed and show current BMI and BMR
     $('#bUserForm').empty();
-    $('#bUserForm').append('<p class="col-md-11 col-md-offset-0 gUP text-center"><strong>' + capitalizeFirstLetter(currUser.firstName) + '</strong>, here is your current BMI! <br><strong>' + currUser.bmi + '</strong></p>');
+    $('#bUserForm').addClass('animated pulse').append('<p class="col-md-10 col-md-offset-0 gUP text-center">Welcome Back, <strong>' + capitalizeFirstLetter(currUser.firstName) + '</strong>! <br> Here is your current BMI: <br><strong>[' + currUser.bmi + ']</strong></p>');
 
   }
 });

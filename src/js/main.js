@@ -1,30 +1,30 @@
 // add scripts
 
-$(document).on('ready', function() {
-  // console.log('sanity check!');
+$(document).ready(function() {
 
-  $('#introEnter')
+  // Hide returning user button if there is no stored information
+
+  if (JSON.parse(localStorage.getItem("user")) === null) {
+    $('#returninguser').remove();
+  }
+
+  $('#introenter, #returninguser')
     .show()
-    .css('opacity', 0)
-    .slideDown('fast')
-    .animate({
-      opacity: 1
-    }, {
-      queue: false,
-      duration: 'slow'
-    });
+    .addClass('animated bounceInDown');
 
-    $('nav')
-      .css('opacity', 0)
-      .slideDown('slow')
-      .animate({
-        opacity: 1
-      }, {
-        queue: false,
-        duration: 'slow'
-      });
+  $('#introenter').on('hover', function() {
+        $(this).add
+        $(this).addClass('animated pulse');
+  });
 
 
-    localStorage.clear();
+
+  $('nav').addClass('animated bounceInDown');
+
+
+ $('#introenter').on('click', function () {
+      localStorage.clear();
+ });
+
 
 });
