@@ -27,7 +27,4 @@ $(document).on('ready', function() {
 
     localStorage.clear();
 
-    $('#introEnter').on('click', function () {
-      $( "#baseUserProf" ).load( "ajax/basicprofile.html" );
-    })
 });
