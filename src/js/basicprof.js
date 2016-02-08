@@ -72,6 +72,19 @@ $(document).ready(function() {
       //fetch object
       console.log(localStorage.getItem("user"));
 
+      // set healthlevel depending on BMI
+
+      // empty healthlevel variable
+      var healthlevel;
+
+      if (newUser.bmi < 18.5) {
+        healthlevel = "Underweight";
+      } else if (newUser.bmi <= 24.99) {
+        healthlevel = "Normal Weight";
+      } else if (newUser.bmi >= 25) {
+        healthlevel = "Overweight";
+      }
+
       // clear inputs
       $('input').val('');
       $('input[name="gender"]').prop('checked', false);
@@ -88,7 +101,7 @@ $(document).ready(function() {
       $('#bUserForm').empty();
       $('#bUserForm').addClass('animated fadeIn').append('<p class="col-md-10 col-md-offset-0 gUP text-center">Welcome <strong>' + capitalizeFirstLetter(newUser.firstName) +
       '</strong>! <br>Here is your current BMI: <br><strong>[' + newUser.bmi +
-      ']</strong></p>');
+      ']</strong> <br> You are considered, <strong>'+ healthlevel+'.</strong></p>');
     });
   } else {
 
@@ -100,7 +113,7 @@ $(document).ready(function() {
     $('#userbmidiv').addClass('animated fadeIn').append('<a href="trackingprofile.html" class="btn btn-primary btn-md active" role="button">Lets Track Your Calories for the day!</a>');
     // keep form on hidden if already completed and show current BMI and BMR
     $('#bUserForm').empty();
-    $('#bUserForm').addClass('animated pulse').append('<p class="col-md-10 col-md-offset-0 gUP text-center">Welcome Back, <strong>' + capitalizeFirstLetter(currUser.firstName) + '</strong>! <br> Here is your current BMI: <br><strong>[' + currUser.bmi + ']</strong></p>');
+    $('#bUserForm').addClass('animated pulse').append('<p class="col-md-10 col-md-offset-0 gUP text-center">Welcome Back, <strong>' + capitalizeFirstLetter(currUser.firstName) + '</strong>! <br> Here is your current BMI: <br><strong>[' + currUser.bmi + ']</strong> </p>');
 
   }
 });
