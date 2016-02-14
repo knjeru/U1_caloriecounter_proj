@@ -3,6 +3,7 @@
 var calsFromFood = [];
 var calsCON;
 var currWater = 0;
+var quantity = 0;
 
 // helper function for text capitalization
 function capitalizeFirstLetter(string) {
