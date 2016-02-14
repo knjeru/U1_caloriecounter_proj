@@ -24,9 +24,9 @@ body {
 }
 
 .formfit {
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 5px;
-  top: 50px;
+  top: 30px;
   width: 60%;
   height: 100%;
   background-color: rgba(64, 140, 60, 0.96);
